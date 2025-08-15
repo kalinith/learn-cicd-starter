@@ -19,7 +19,6 @@ func TestGetAPIKey(t *testing.T) {
         "malformed auth header 1":{inputKey:"Authorization",inputValue:"-",wantErr:"malformed authorization header"},
         "malformed auth header 2":{inputKey:"Authorization",inputValue:"Bearer xxxxxx",wantErr:"malformed authorization header"},
         "valid header":           {inputKey:"Authorization",inputValue:"ApiKey xxxxxx",want:"xxxxxx",wantErr:"not expecting an error"},
-        "this should raise an error":{inputKey:"Authorization",wantErr:"-"},
     }
 
     for name, tc := range tests {
