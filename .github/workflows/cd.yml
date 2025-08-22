@@ -35,3 +35,6 @@ jobs:
 
       - name: 'push to Google Artifact Registry'
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/decent-tape-469610-j5/notely-ar-repo/notely:latest
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/decent-tape-469610-j5/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project PROJECT_ID --max-instances=4
